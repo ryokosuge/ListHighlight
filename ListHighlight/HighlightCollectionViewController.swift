@@ -24,6 +24,9 @@ class CollectionViewCell: UICollectionViewCell {
 
         // ここでframeを指定すると、そのframeでのHighlight表示になる
         selectedView.frame = self.bounds.insetBy(dx: 8, dy: 8)
+
+        // もしCollectionViewの子Viewが全部覆うようなレイアウトの場合は一番上に出さなければならない
+        self.bringSubview(toFront: selectedView)
     }
 
     func configure(_ item: Item) {
